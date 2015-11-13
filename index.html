@@ -12,6 +12,11 @@
 <form role="form" name="signUpForm" ng-controller="SignUpCtrl" novalidate>
 
     <div class="form-control form-inline">
+        <input type="email" name='email' id='email' placeholder='youremail@youremailservice.com' required >
+        <p ng-show="signUpForm.email.$invalid">A valid e-mail address is required</p>
+        <input type="text" name='firstName' id='firstName' placeholder='Your first name'>
+        <input type="text" name='lastName' id='lastName' placeholder ='Your last name' required>
+        <p ng-show="signUpForm.lastName.$invalid">Enter your last name</p>
         <button class="">Reset</button>
         <button class="btn btn-primary" type="submit" ng-click="submitForm()" ng-disabled="signUpForm.$invalid">Sign Up</button>
         <div class="alert alert-success" ng-class="display">
