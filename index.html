@@ -2,30 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Sign Up - Team Challenge</title>
+
+    <!-- Load css-->
+    <link rel="stylesheet" href="css/main.css"/>
 
     <!-- Load angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
 </head>
 <body ng-app="SignUpApp">
 
 <form role="form" name="signUpForm" ng-controller="SignUpCtrl" novalidate>
 
-    <div class="form-control form-inline">
-        <input type="email" name='email' id='email' ng-model='email' placeholder='youremail@youremailservice.com' required >
-        <p ng-show="signUpForm.email.$invalid">A valid e-mail address is required</p>
-        <input type="text" name='firstName' id='firstName' ng-model='firstName'placeholder='Your first name'>
-        <input type="text" name='lastName' id='lastName' ng-model='lastName' placeholder ='Your last name' required>
-        <p ng-show="signUpForm.lastName.$invalid">Enter your last name</p>
-        <button class="">Reset</button>
-        <button class="btn btn-primary" type="submit" ng-click="submitForm()" ng-disabled="signUpForm.$invalid">Sign Up</button>
+<div class="container-fluid" ng-controller="SignUpCtrl">
+    <form name="signUpForm" role="form" novalidate>
+
+        <div class="form-control form-inline">
+            <input type="email" name='email' id='email' placeholder='youremail@youremailservice.com' required >
+            <p ng-show="signUpForm.email.$invalid">A valid e-mail address is required</p>
+            <input type="text" name='firstName' id='firstName' placeholder='Your first name'>
+            <input type="text" name='lastName' id='lastName' placeholder ='Your last name' required>
+            <p ng-show="signUpForm.lastName.$invalid">Enter your last name</p>
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="test" required/>
+        </div>
+
+        <button class="btn btn-warning">Reset</button>
+        <button class="btn btn-primary" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Up</button>
         <div class="alert alert-success" ng-class="display">
             <strong>Account sign up has been submitted.</strong>
             <a href="#" class="close">&times;</a>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>
 
 <!-- Load javascript-->
 <script src="js/app.js"></script>
