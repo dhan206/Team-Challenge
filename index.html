@@ -19,7 +19,7 @@
 
     <form name="signUpForm" role="form" novalidate>
 
-        <div class="form-group form-inline">
+        <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.email.$invalid && !signUpForm.name.$pristine}">
             <input type="email" class="form-control" name='email' id='email' placeholder='youremail@youremailservice.com' ng-model="email" required>
             <p ng-show="signUpForm.email.$invalid">A valid e-mail address is required</p>
         </div>
@@ -28,7 +28,7 @@
             <input type="text" class="form-control" name='firstName' id='firstName' placeholder='Your first name' ng-model="firstName">
         </div>
 
-        <div class="form-group form-inline">
+        <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.lastName.$invalid && !signUpForm.name.$pristine}">
             <input type="text" class="form-control" name='lastName' id='lastName' placeholder ='Your last name' ng-model="lastName" required>
             <p ng-show="signUpForm.lastName.$invalid">Enter your last name</p>
         </div>
