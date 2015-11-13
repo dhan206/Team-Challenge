@@ -8,10 +8,15 @@ angular.module("SignUpApp", [])
 
     .controller("SignUpCtrl", ['$scope', function($scope) {
 
+        $scope.submitted = false;
+
         $scope.submitForm = function(form) {
-            if(form.$valid) {
-                alert("valid form submitted");
+            if(form.valid) {
+                $scope.submitted = true;
             }
-            alert("invalid");
         };
+
+        $scope.clearAlert = function() {
+            $scope.submitted = false;
+        }
     }]);
