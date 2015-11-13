@@ -16,6 +16,20 @@
 <div class="container-fluid" ng-controller="SignUpCtrl">
     <form name="signUpForm" role="form" novalidate>
 
+        <div class="form-control form-inline">
+            <input type="email" name='email' id='email' placeholder='youremail@youremailservice.com' required >
+            <p ng-show="signUpForm.email.$invalid">A valid e-mail address is required</p>
+            <input type="text" name='firstName' id='firstName' placeholder='Your first name'>
+            <input type="text" name='lastName' id='lastName' placeholder ='Your last name' required>
+            <p ng-show="signUpForm.lastName.$invalid">Enter your last name</p>
+            <button class="">Reset</button>
+            <button class="btn btn-primary" type="submit" ng-click="submitForm()" ng-disabled="signUpForm.$invalid">Sign Up</button>
+            <div class="alert alert-success" ng-class="display">
+
+                <strong>Account sign up has been submitted.</strong>
+                <a href="#" class="close">&times;</a>
+        </div>
+
         <div class="form-group">
             <input type="text" class="form-control" ng-model="test" required/>
         </div>
@@ -23,9 +37,6 @@
         <button class="btn btn-warning">Reset</button>
         <button class="btn btn-primary" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Up</button>
         <div class="alert alert-success">
-            <strong>Account sign up has been submitted.</strong>
-            <a href="#" class="close">&times;</a>
-        </div>
     </form>
 </div>
 
