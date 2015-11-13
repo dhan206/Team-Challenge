@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+
+    <!-- Load angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="SignUpApp">
+
+<form role="form" name="signUpForm" ng-controller="SignUpCtrl" novalidate>
+
+    <div class="form-control form-inline">
+        <button class="">Reset</button>
+        <button class="btn btn-primary" type="submit" ng-click="submitForm()" ng-disabled="signUpForm.$invalid">Sign Up</button>
+        <div class="alert alert-success" ng-class="display">
+            <strong>Account sign up has been submitted.</strong>
+            <a href="#" class="close">&times;</a>
+        </div>
+    </div>
+</form>
+
+
+<!-- Load javascript-->
+<script src="js/app.js"></script>
 
 </body>
 </html>
