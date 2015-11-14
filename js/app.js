@@ -10,10 +10,25 @@ angular.module("SignUpApp", [])
 
         $scope.submitted = false;
 
+        $scope.form = {
+            email: "",
+            firstName: "",
+            lastName: "",
+            birthDate: "",
+            password: ""
+        };
+
+        var defaultForm = angular.copy($scope.form);
+
         $scope.submitForm = function(form) {
             if(form.valid) {
                 $scope.submitted = true;
             }
+        };
+
+        $scope.resetForm = function() {
+            $scope.form = angular.copy(defaultForm);
+            $scope.signUpForm.$setPristine();
         };
 
         $scope.clearAlert = function() {
