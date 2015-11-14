@@ -20,20 +20,30 @@
     <form name="signUpForm" role="form" novalidate>
 
         <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.email.$invalid && !signUpForm.email.$pristine}">
-            <input type="email" class="form-control" name='email' id='email' placeholder='youremail@youremailservice.com' ng-model="email" required>
+            <input type="email" class="form-control" name='email' id='email' placeholder='youremail@youremailservice.com' ng-model="form.email" required>
             <p class='red' ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">A valid e-mail address is required</p>
         </div>
 
         <div class="form-group form-inline">
-            <input type="text" class="form-control" name='firstName' id='firstName' placeholder='Your first name' ng-model="firstName">
+            <input type="text" class="form-control" name='firstName' id='firstName' placeholder='Your first name' ng-model="form.firstName">
         </div>
 
         <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine}">
-            <input type="text" class="form-control" name='lastName' id='lastName' placeholder ='Your last name' ng-model="lastName" required>
+            <input type="text" class="form-control" name='lastName' id='lastName' placeholder ='Your last name' ng-model="form.lastName" required>
             <p class='red' ng-show="signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine">Enter your last name</p>
         </div>
 
-        <button class="btn btn-warning">Reset</button>
+         <!-- TODO: birthDate form issued for Kai -->
+        <div class="form-group form-inline">
+            <input type="" class="form-control" name="birthDate" id="birthDate" ng-model="form.birthDate"/>
+        </div>
+
+        <!-- TODO: password form issued for Richard -->
+        <div class="form-group form-inline">
+            <input type="" class="form-control" name="password" id="password" ng-model="form.password"/>
+        </div>
+
+        <button id="resetButton" class="btn btn-warning" ng-click="resetForm(signUpForm)">Reset</button>
         <button id="submitButton" class="btn btn-primary" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Up</button>
         <div class="alert alert-success" ng-if="">
             <strong>Account sign up has been submitted.</strong>
