@@ -1,6 +1,18 @@
 /* Imports bootstrap */
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
 
+body {
+    background-color: rgba(85, 107, 47, .7);
+    height: 100vh;
+}
 .red {
 	color:red;
+}
+
+#formContainer {
+    padding: 0 2em 2em 2em;
+    border-radius: 1em;
+    background-color: lightgrey;
+    margin-top: 3em;
+    width: 90%;
 }

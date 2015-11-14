@@ -15,7 +15,8 @@ angular.module("SignUpApp", [])
             firstName: "",
             lastName: "",
             birthDate: "",
-            password: ""
+            password: "",
+            passwordConfirm: ""
         };
 
         var defaultForm = angular.copy($scope.form);
