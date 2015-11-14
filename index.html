@@ -15,32 +15,45 @@
 
 <form role="form" name="signUpForm" ng-controller="SignUpCtrl" novalidate>
 
-<div class="container-fluid" ng-controller="SignUpCtrl">
+<div class="container-fluid" id="formContainer" ng-controller="SignUpCtrl">
 
+    <h1>Sign Up</h1>
+    <h4>Our service is fun and awesome, but you must be 13 years old to join.</h4>
     <form name="signUpForm" role="form" novalidate>
 
-        <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.email.$invalid && !signUpForm.email.$pristine}">
+        <div class="form-group form-horizonal"  ng-class="{'has-error': signUpForm.email.$invalid && !signUpForm.email.$pristine}">
+            <label>Email</label>
             <input type="email" class="form-control" name='email' id='email' placeholder='youremail@youremailservice.com' ng-model="form.email" required>
             <p class='red' ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">A valid e-mail address is required</p>
         </div>
 
-        <div class="form-group form-inline">
+        <div class="form-group form-horizonal">
+            <label>First Name</label>
             <input type="text" class="form-control" name='firstName' id='firstName' placeholder='Your first name' ng-model="form.firstName">
         </div>
 
-        <div class="form-group form-inline"  ng-class="{'has-error': signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine}">
+        <div class="form-group form-horizonal"  ng-class="{'has-error': signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine}">
+            <label>Last Name</label>
             <input type="text" class="form-control" name='lastName' id='lastName' placeholder ='Your last name' ng-model="form.lastName" required>
             <p class='red' ng-show="signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine">Enter your last name</p>
         </div>
 
          <!-- TODO: birthDate form issued for Kai -->
-        <div class="form-group form-inline">
+        <div class="form-group form-horizonal">
+            <label>Birthdate</label>
             <input type="" class="form-control" name="birthDate" id="birthDate" ng-model="form.birthDate"/>
         </div>
 
         <!-- TODO: password form issued for Richard -->
-        <div class="form-group form-inline">
+        <div class="form-group form-horizonal">
+            <label>Password</label>
             <input type="" class="form-control" name="password" id="password" ng-model="form.password"/>
+        </div>
+
+        <!-- TODO: password confirmation issued for Richard -->
+        <div class="form-group form-horizonal">
+            <label>Confirm Password</label>
+            <input type="" class="form-control" name="passwordConfirm" id="passwordConfirm" ng-model="form.passwordConfirm"/>
         </div>
 
         <button id="resetButton" class="btn btn-warning" ng-click="resetForm(signUpForm)">Reset</button>
