@@ -50,6 +50,33 @@ describe("Button feature", function() {
 
 });
 
+describe("Last name and e-mail input", function() { 
+
+    it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
+        var email = element(by.model("email"));
+        var lastName = element(by.model("lastName"));
+
+        email.sendKeys("kendall");
+
+        expect((email, 'ng-invalid').toEqual(true));
+
+        email.sendKeys("@uw.edu");
+
+        expect((email, 'ng-invalid').toEqual(false));
+
+        lastName.sendKeys('a');
+
+        lastName.clear();
+
+        expect((lastName, 'ng-invalid').toEqual(false));
+
+        lastName.sendKeys('Reonal');
+
+        expect((lastName, 'ng-invalid').toEqual(true));
+    });
+
+});
+
 describe("Date validation", function() {
 
     beforeEach(function () {
@@ -136,29 +163,3 @@ describe("Age validation", function() {
 
 });
 
-describe("Last name and e-mail input", function() { 
-
-    it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
-        var email = element(by.model("email"));
-        var lastName = element(by.model("lastName"));
-
-        email.sendKeys("kendall");
-
-        expect((email, 'ng-invalid').toEqual(true));
-
-        email.sendKeys("@uw.edu");
-
-        expect((email, 'ng-invalid').toEqual(false));
-
-        lastName.sendKeys('a');
-
-        lastName.clear();
-
-        expect((lastName, 'ng-invalid').toEqual(false));
-
-        lastName.sendKeys('Reonal');
-
-        expect((lastName, 'ng-invalid').toEqual(true));
-    });
-
-});
