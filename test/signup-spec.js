@@ -49,3 +49,92 @@ describe("Button feature", function() {
     });
 
 });
+
+describe("Date validation", function() {
+
+    beforeEach(function () {
+        //navigate browser to the given url
+        browser.get("http://localhost:8000");
+    });
+
+    it("should give feedback if the birth date entered is not a valid date", function() {
+        var date = element(by.id("birthDate"));
+        // var noDateError = element(by.id("noDateError"));
+        // var ageError = element(by.id("ageError"));
+        var isDateError = element(by.id("isDateError"));
+
+        date.sendKeys("11/19/1994");
+
+        expect(isDateError.isDisplayed()).toBeFalsy();
+
+        date.clear();
+
+        date.sendKeys("1925-11-19")
+
+        expect(isDateError.isDisplayed()).toBeFalsy();
+
+        date.clear();
+
+        date.sendKeys("Illuminati is real");
+
+        expect(isDateError.isDisplayed()).toBeTruthy();
+
+    })
+
+});
+
+describe("Age validation", function() {
+
+    beforeEach(function () {
+        //navigate browser to the given url
+        browser.get("http://localhost:8000");
+    });
+
+    it("should give feedback if the birth date entered is not 13 years old", function() {
+        var date = element(by.id("birthDate"));
+        // var noDateError = element(by.id("noDateError"));
+        var ageError = element(by.id("ageError"));
+        // var isDateError = element(by.id("isDateError"));
+        var testDate = new Date()
+
+        date.sendKeys("11/19/1994");
+
+        expect(ageError.isDisplayed()).toBeFalsy();
+
+        date.clear();
+
+        date.sendKeys("1925-11-19")
+
+        expect(ageError.isDisplayed()).toBeFalsy();
+
+        date.clear();
+
+        testDate.setTime(testDate.valueOf() - 410240038000);
+
+        date.sendKeys(testDate.getMonth() + 1 + "/" + testDate.getDate() + "/" + testDate.getFullYear());
+
+        expect(ageError.isDisplayed()).toBeFalsy();
+
+        date.clear();
+
+        testDate = new Date()
+
+        testDate.setTime(testDate.valueOf() - 315569260000);
+
+        date.sendKeys(testDate.getMonth() + 1 + "/" + testDate.getDate() + "/" + testDate.getFullYear());
+
+        expect(ageError.isDisplayed()).toBeTruthy();
+
+        date.clear();
+
+        testDate = new Date()
+
+        testDate.setTime((testDate.valueOf() - 410240038000) + 86400000);
+
+        date.sendKeys(testDate.getMonth() + 1 + "/" + testDate.getDate() + "/" + testDate.getFullYear());
+
+        expect(ageError.isDisplayed()).toBeTruthy();
+        
+    })
+
+});
