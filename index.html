@@ -39,11 +39,13 @@
         </div>
 
          <!-- TODO: birthDate form issued for Kai -->
-        <div class="form-group form-horizonal" ng-class="{'has-error': !isThirteen(), 'has-error': !isDate()}">
+        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.birthDate.$invalid && !signUpForm.birthDate.$pristine}", 'has-error': !isThirteen(), 'has-error': !isDate()>
             <label>Birthdate</label>
-            <input type="text" class="form-control" name="birthDate" id="birthDate" placeholder='YYYY-MM-DD' ng-model="form.birthDate"required>
+            <input type="text" class="form-control" name="birthDate" id="birthDate" placeholder='MM/DD/YYYY' ng-model="form.birthDate"required>
+            <p class='red' ng-show="signUpForm.birthDate.$invalid && !signUpForm.birthDate.$pristine">Enter your date of birth</p>
             <p class='red' ng-show="!isThirteen()">You must be at least thirteen years old</p>
-            <p class='red' ng-show="!isDate()">Incorrect format, a valid date (YYYY-MM-DD) is required</p>
+            <p class='red' ng-show="!isDate()">A valid date (MM/DD/YYYY) is required</p>
+
         </div>
 
         <!-- TODO: password form issued for Richard -->
