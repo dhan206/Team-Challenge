@@ -23,18 +23,19 @@ angular.module("SignUpApp", [])
 
         $scope.isDate = function() {
             if (($scope.signUpForm.birthDate.$viewValue.length) > 0) {
-                console.log(Date.parse($scope.signUpForm.birthDate.$viewValue))
+                // console.log(Date.parse($scope.signUpForm.birthDate.$viewValue))
+                console.log(Math.abs(!new Date() - new Date($scope.signUpForm.birthDate.$viewValue)))
                 return !isNaN(Date.parse($scope.signUpForm.birthDate.$viewValue))
             } else {
                 return true;
             }
 
         }
-        
+
         $scope.isThirteen = function() {
             var today = new Date();
             if (!isNaN(Date.parse($scope.signUpForm.birthDate.$viewValue))) {
-                return (!Date.parse(today) - Date.parse($scope.signUpForm.birthDate.$viewValue) <= 410240376000);
+                return !(Math.abs(new Date() - new Date($scope.signUpForm.birthDate.$viewValue)) <= 410240376000);
             } else {
                 return true;
             }
