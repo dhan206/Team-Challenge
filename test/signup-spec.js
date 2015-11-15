@@ -50,7 +50,7 @@ describe("Button feature", function() {
 
 });
 
-describe("Last name and e-mail input", function() {
+describe("Date validation", function() {
 
     beforeEach(function () {
         //navigate browser to the given url
@@ -136,7 +136,7 @@ describe("Age validation", function() {
 
 });
 
-describe("Date validation", function() { 
+describe("Last name and e-mail input", function() { 
 
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
         var email = element(by.model("email"));
