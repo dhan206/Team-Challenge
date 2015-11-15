@@ -59,8 +59,6 @@ describe("Date validation", function() {
 
     it("should give feedback if the birth date entered is not a valid date", function() {
         var date = element(by.id("birthDate"));
-        // var noDateError = element(by.id("noDateError"));
-        // var ageError = element(by.id("ageError"));
         var isDateError = element(by.id("isDateError"));
 
         date.sendKeys("11/19/1994");
@@ -92,9 +90,7 @@ describe("Age validation", function() {
 
     it("should give feedback if the birth date entered is not 13 years old", function() {
         var date = element(by.id("birthDate"));
-        // var noDateError = element(by.id("noDateError"));
         var ageError = element(by.id("ageError"));
-        // var isDateError = element(by.id("isDateError"));
         var testDate = new Date()
 
         date.sendKeys("11/19/1994");
@@ -136,5 +132,7 @@ describe("Age validation", function() {
         expect(ageError.isDisplayed()).toBeTruthy();
         
     })
+
+});
 
 });
