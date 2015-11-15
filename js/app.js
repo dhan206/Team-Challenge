@@ -21,6 +21,25 @@ angular.module("SignUpApp", [])
 
         var defaultForm = angular.copy($scope.form);
 
+        $scope.isDate = function() {
+            if (($scope.signUpForm.birthDate.$viewValue.length) > 0) {
+                console.log(Date.parse($scope.signUpForm.birthDate.$viewValue))
+                return !isNaN(Date.parse($scope.signUpForm.birthDate.$viewValue))
+            } else {
+                return true;
+            }
+
+        }
+        
+        $scope.isThirteen = function() {
+            var today = new Date();
+            if (!isNaN(Date.parse($scope.signUpForm.birthDate.$viewValue))) {
+                return (!Date.parse(today) - Date.parse($scope.signUpForm.birthDate.$viewValue) <= 410240376000);
+            } else {
+                return true;
+            }
+        };
+
         $scope.submitForm = function(form) {
             if(form.valid) {
                 $scope.submitted = true;
