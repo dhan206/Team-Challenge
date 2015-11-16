@@ -39,7 +39,7 @@
         </div>
 
          <!-- TODO: birthDate form issued for Kai -->
-        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.birthDate.$invalid && !signUpForm.birthDate.$pristine}", 'has-error': !isThirteen(), 'has-error': !isDate()>
+        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.birthDate.$invalid && !signUpForm.birthDate.$pristine}, 'has-error': !isThirteen(), 'has-error': !isDate()">
             <label>Birthdate</label>
             <input type="text" class="form-control" name="birthDate" id="birthDate" placeholder='MM/DD/YYYY' ng-model="form.birthDate"required>
             <p class='red' id="noDateError" ng-show="signUpForm.birthDate.$invalid && !signUpForm.birthDate.$pristine">Enter your date of birth</p>
@@ -62,9 +62,9 @@
 
         <button id="resetButton" class="btn btn-warning" ng-click="resetForm(signUpForm)">Reset</button>
         <button id="submitButton" class="btn btn-primary" type="submit" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Up</button>
-        <div class="alert alert-success" ng-if="">
+        <div id="submitAlert" class="alert alert-success" ng-show="submitted">
             <strong>Account sign up has been submitted.</strong>
-            <a href="#" class="close">&times;</a>
+            <div id="closeAlert" ng-click="clearAlert()">&times;</div>
         </div>
     </form>
 

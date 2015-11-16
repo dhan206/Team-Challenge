@@ -42,9 +42,7 @@ angular.module("SignUpApp", [])
         };
 
         $scope.submitForm = function(form) {
-            if(form.valid) {
-                $scope.submitted = true;
-            }
+            $scope.submitted = true;
         };
 
         $scope.resetForm = function() {
