@@ -4,6 +4,7 @@
 
 'use strict';
 
+//describes the button feature
 describe("Button feature", function() {
 
     beforeEach(function () {
@@ -11,6 +12,7 @@ describe("Button feature", function() {
         browser.get("http://localhost:8000");
     });
 
+    //checks if the button is disabled/enabled for the appropriate conditions
     it("should disable the button if there form is invalid", function() {
 
         var submit = element(by.id("submitButton"));
@@ -41,6 +43,7 @@ describe("Button feature", function() {
 
 });
 
+//describes the last name and e-mail input
 describe("Last name and e-mail input", function() {
 
     beforeEach(function () {
@@ -48,6 +51,7 @@ describe("Last name and e-mail input", function() {
         browser.get("http://localhost:8000");
     });
 
+    //checks if feedback is given at the correct moments
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
 
         var email = element(by.id("email"));
@@ -76,6 +80,7 @@ describe("Last name and e-mail input", function() {
 
 });
 
+//describes date validation test
 describe("Date validation", function() {
 
     beforeEach(function () {
@@ -83,7 +88,7 @@ describe("Date validation", function() {
         browser.get("http://localhost:8000");
     });
 
-
+    //gives feedback if the birth date is valid date
     it("should give feedback if the birth date entered is not a valid date", function() {
         var date = element(by.id("birthDate"));
         var isDateError = element(by.id("isDateError"));
@@ -108,6 +113,7 @@ describe("Date validation", function() {
 
 });
 
+//describes age validation test
 describe("Age validation", function() {
 
     beforeEach(function () {
@@ -115,6 +121,7 @@ describe("Age validation", function() {
         browser.get("http://localhost:8000");
     });
 
+    //gives feedback if user is not 13 years old
     it("should give feedback if the birth date entered is not 13 years old", function() {
         var date = element(by.id("birthDate"));
         var ageError = element(by.id("ageError"));
@@ -162,6 +169,8 @@ describe("Age validation", function() {
 
 });
 
+
+//describes the password validation
 describe("Password Validation", function() {
 
     beforeEach(function () {
@@ -169,6 +178,7 @@ describe("Password Validation", function() {
         browser.get("http://localhost:8000");
     });
 
+    //tests if the password and confirm password confirm field are equal
     it("Should check if the password confirm field matches the password field", function() {
         var password = element(by.id("password"));
         var passwordConfirm = element(by.id("passwordConfirm"));
