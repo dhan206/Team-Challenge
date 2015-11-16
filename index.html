@@ -24,7 +24,7 @@
         <div class="form-group form-horizonal"  ng-class="{'has-error': signUpForm.email.$invalid && !signUpForm.email.$pristine}">
             <label>Email</label>
             <input type="email" class="form-control" name='email' id='email' placeholder='youremail@youremailservice.com' ng-model="form.email" required>
-            <p class='red' ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">A valid e-mail address is required</p>
+            <p class='red' id="emailError" ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine">A valid e-mail address is required</p>
         </div>
 
         <div class="form-group form-horizonal">
@@ -35,7 +35,7 @@
         <div class="form-group form-horizonal"  ng-class="{'has-error': signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine}">
             <label>Last Name</label>
             <input type="text" class="form-control" name='lastName' id='lastName' placeholder ='Your last name' ng-model="form.lastName" required>
-            <p class='red' ng-show="signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine">Enter your last name</p>
+            <p class='red' id="lastNameError" ng-show="signUpForm.lastName.$invalid && !signUpForm.lastName.$pristine">Enter your last name</p>
         </div>
 
          <!-- TODO: birthDate form issued for Kai -->

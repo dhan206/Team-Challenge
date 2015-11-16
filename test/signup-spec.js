@@ -49,26 +49,29 @@ describe("Last name and e-mail input", function() {
     });
 
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
+
+        var email = element(by.id("email"));
+        var lastName = element(by.id("lastName"));
         var emailError = element(by.id("emailError"));
         var lastNameError = element(by.id("lastNameError"));
 
         email.sendKeys("kendall");
 
-        expect(emailError.isDisplayed()).toBeTruthy);
+        expect(emailError.isDisplayed()).toBeTruthy();
 
         email.sendKeys("@uw.edu");
 
-        expect(emailError.isDisplayed()).toBeFalsy);
+        expect(emailError.isDisplayed()).toBeFalsy();
 
         lastName.sendKeys('a');
 
         lastName.clear();
 
-        expect(lastNameError.isDisplayed()).toBeFalsy);
+        expect(lastNameError.isDisplayed()).toBeTruthy();
 
         lastName.sendKeys('Reonal');
 
-        expect(lastNameError.isDisplayed()).toBeTruth);
+        expect(lastNameError.isDisplayed()).toBeFalsy();
     });
 
 });
