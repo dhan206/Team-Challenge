@@ -56,7 +56,7 @@
         </div>
 
         <!-- TODO: password confirmation issued for Richard -->
-        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}", 'has-error': !checkMatch()>
+        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}, 'has-error': !checkMatch()">
             <label>Confirm Password</label>
             <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" ng-model="form.passwordConfirm" ng-change="checkMatch()" required/>
             <p class="red" ng-show="signUpForm.passwordConfirm.$invalid && !signUpForm.passwordConfirm.$pristine">You must confirm your password</p>
