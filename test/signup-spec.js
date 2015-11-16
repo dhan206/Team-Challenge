@@ -53,26 +53,26 @@ describe("Button feature", function() {
 describe("Last name and e-mail input", function() { 
 
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
-        var email = element(by.id("email"));
-        var lastName = element(by.id("lastName"));
+        var emailError = element(by.id("emailError"));
+        var lastNameError = element(by.id("lastNameError"));
 
         email.sendKeys("kendall");
 
-        expect((email, 'ng-invalid').toEqual(true));
+        expect(emailError.isDisplayed()).toEqual(true));
 
         email.sendKeys("@uw.edu");
 
-        expect((email, 'ng-invalid').toEqual(false));
+        expect(emailError.isDisplayed()).toEqual(false));
 
         lastName.sendKeys('a');
 
         lastName.clear();
 
-        expect((lastName, 'ng-invalid').toEqual(false));
+        expect(lastNameError.isDisplayed()).toEqual(false));
 
         lastName.sendKeys('Reonal');
 
-        expect((lastName, 'ng-invalid').toEqual(true));
+        expect(lastNameError.isDisplayed()).toEqual(true));
     });
 
 });
