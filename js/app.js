@@ -42,9 +42,7 @@ angular.module("SignUpApp", [])
         };
 
         $scope.submitForm = function(form) {
-            if(form.valid) {
-                $scope.submitted = true;
-            }
+            $scope.submitted = true;
         };
 
         $scope.resetForm = function() {
@@ -54,7 +52,7 @@ angular.module("SignUpApp", [])
 
         $scope.clearAlert = function() {
             $scope.submitted = false;
-        }
+        };
 
         $scope.checkMatch = function() {
             return $scope.signUpForm.password.$viewValue == $scope.signUpForm.passwordConfirm.$viewValue;

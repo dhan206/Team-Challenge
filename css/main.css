@@ -16,3 +16,20 @@ body {
     margin-top: 3em;
     width: 90%;
 }
+
+#closeAlert {
+    float: right;
+    text-decoration: none;
+    color: red;
+    display: inline;
+}
+
+#closeAlert:hover {
+    cursor: pointer;
+}
+
+#submitAlert {
+    margin: 1em 0 0 0;
+
+}
+
