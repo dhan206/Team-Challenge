@@ -54,21 +54,21 @@ describe("Last name and e-mail input", function() {
 
         email.sendKeys("kendall");
 
-        expect(emailError.isDisplayed()).toEqual(true));
+        expect(emailError.isDisplayed()).toBeTruthy);
 
         email.sendKeys("@uw.edu");
 
-        expect(emailError.isDisplayed()).toEqual(false));
+        expect(emailError.isDisplayed()).toBeFalsy);
 
         lastName.sendKeys('a');
 
         lastName.clear();
 
-        expect(lastNameError.isDisplayed()).toEqual(false));
+        expect(lastNameError.isDisplayed()).toBeFalsy);
 
         lastName.sendKeys('Reonal');
 
-        expect(lastNameError.isDisplayed()).toEqual(true));
+        expect(lastNameError.isDisplayed()).toBeTruth);
     });
 
 });
