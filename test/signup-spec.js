@@ -163,3 +163,27 @@ describe("Age validation", function() {
 
 });
 
+describe("Password Validation", function() {
+
+    beforeEach(function () {
+        //navigate browser to the given url
+        browser.get("http://localhost:8000");
+    });
+
+    it("Should check if the password confirm field matches the password field", function() {
+        var password = element(by.id("password"));
+        var passwordConfirm = element(by.id("passwordConfirm"));
+        var matchError = element(by.id("matchError"));
+
+        password.sendKeys("password");
+        passwordConfirm.sendKeys("password");
+        expect(matchError.isDisplayed()).toBeFalsy();
+        password.clear();
+        passwordConfirm.clear();
+
+        password.sendKeys("password");
+        passwordConfirm.sendKeys("not a password");
+        expect(matchError.isDisplayed()).toBeTruthy();
+    })
+});
+

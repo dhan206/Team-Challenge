@@ -49,15 +49,18 @@
         </div>
 
         <!-- TODO: password form issued for Richard -->
-        <div class="form-group form-horizonal">
+        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}">
             <label>Password</label>
-            <input type="" class="form-control" name="password" id="password" ng-model="form.password"/>
+            <input type="password" class="form-control" name="password" id="password" ng-model="form.password"/ required>
+            <p class="red" ng-show="signUpForm.password.$invalid && !signUpForm.password.$pristine">A password is required</p>
         </div>
 
         <!-- TODO: password confirmation issued for Richard -->
-        <div class="form-group form-horizonal">
+        <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}", 'has-error': !checkMatch()>
             <label>Confirm Password</label>
-            <input type="" class="form-control" name="passwordConfirm" id="passwordConfirm" ng-model="form.passwordConfirm"/>
+            <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" ng-model="form.passwordConfirm" ng-change="checkMatch()" required/>
+            <p class="red" ng-show="signUpForm.passwordConfirm.$invalid && !signUpForm.passwordConfirm.$pristine">You must confirm your password</p>
+            <p class="red" id="matchError" ng-show="!checkMatch() && !signUpForm.passwordConfirm.$pristine">Your passwords do not match</p>
         </div>
 
         <button id="resetButton" class="btn btn-warning" ng-click="resetForm(signUpForm)">Reset</button>
