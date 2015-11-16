@@ -49,8 +49,8 @@ describe("Last name and e-mail input", function() {
     });
 
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
-        var email = element(by.model("email"));
-        var lastName = element(by.model("lastName"));
+        var email = element(by.id("email"));
+        var lastName = element(by.id("lastName"));
 
         email.sendKeys("kendall");
 
@@ -157,5 +157,29 @@ describe("Age validation", function() {
         
     })
 
+});
+
+describe("Password Validation", function() {
+
+    beforeEach(function () {
+        //navigate browser to the given url
+        browser.get("http://localhost:8000");
+    });
+
+    it("Should check if the password confirm field matches the password field", function() {
+        var password = element(by.id("password"));
+        var passwordConfirm = element(by.id("passwordConfirm"));
+        var matchError = element(by.id("matchError"));
+
+        password.sendKeys("password");
+        passwordConfirm.sendKeys("password");
+        expect(matchError.isDisplayed()).toBeFalsy();
+        password.clear();
+        passwordConfirm.clear();
+
+        password.sendKeys("password");
+        passwordConfirm.sendKeys("not a password");
+        expect(matchError.isDisplayed()).toBeTruthy();
+    })
 });
 
