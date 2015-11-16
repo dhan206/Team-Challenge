@@ -53,8 +53,8 @@ describe("Button feature", function() {
 describe("Last name and e-mail input", function() { 
 
     it("should give feedback if the e-mail and last name fields are not entered correctly", function() {
-        var email = element(by.model("email"));
-        var lastName = element(by.model("lastName"));
+        var email = element(by.id("email"));
+        var lastName = element(by.id("lastName"));
 
         email.sendKeys("kendall");
 
