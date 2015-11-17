@@ -54,7 +54,10 @@
             <!-- password form -->
             <div class="form-group form-horizonal" ng-class="{'has-error': signUpForm.password.$invalid && !signUpForm.password.$pristine}">
                 <label>Password</label>
-                <input type="password" class="form-control" name="password" id="password" ng-model="form.password" required/>
+                <input type="password" class="form-control" name="password" id="password" ng-model="form.password" ng-change="checkStrength()" required/>
+                <div class="progress">
+                    <uib-progressbar value="dynamic" type="{{type}}">{{description}}</uib-progressbar>
+                </div>
                 <p class="red" ng-show="signUpForm.password.$invalid && !signUpForm.password.$pristine">A password is required</p>
             </div>
 
@@ -80,6 +83,7 @@
     </div>
 
 <!-- Load javascript-->
+<script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
 <script src="js/app.js"></script>
 
 </body>

@@ -4,13 +4,15 @@
 
 "use strict";
 
-angular.module("SignUpApp", [])
+angular.module("SignUpApp", ['ui.bootstrap'])
 
     //sign up form controller
     .controller("SignUpCtrl", ['$scope', function($scope) {
 
         //submitted set to false
         $scope.submitted = false;
+
+        $scope.dynamic = 0;
 
         //default empty form
         $scope.form = {
@@ -67,4 +69,30 @@ angular.module("SignUpApp", [])
         $scope.checkMatch = function() {
             return $scope.signUpForm.password.$viewValue == $scope.signUpForm.passwordConfirm.$viewValue;
         }
+
+        $scope.checkStrength = function() {
+            var password = $scope.signUpForm.password.$viewValue;
+            var value = 0;
+            var type = 'warning';
+            var description = '';
+            if (password.length > 0) {
+                if (password.length < 5) {
+                    value = 33;
+                    type = 'danger';
+                    description = 'Weak';
+                } else if (password.length < 10) {
+                    value = 66;
+                    type = 'warning';
+                    description = "Medium";
+                } else {
+                    value = 100;
+                    type = 'success';
+                    description = 'Strong';
+                }
+            }
+            $scope.dynamic = value;
+            $scope.type = type;
+            $scope.description = description;
+        }
+
     }]);
